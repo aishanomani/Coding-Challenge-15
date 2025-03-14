@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Risk Management Dashboard</title>
+  </head>
+  
+<style>
+    body {
+        background-color: #8ed4cc; /* Sea Green */
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    header, footer {
+        background-color: #f4c1dd; /* Baby Pink */
+        color: #000000; /* Black */
+        padding: 15px;
+    }
+    main {
+        padding: 20px;
+    }
+</style>
+
+  <body>
+      <header>
+          <h1>Risk Management Dashboard</h1>
+      </header>
+      <main>
+          <section>
+              <h2>Risk Items</h2>
+              <div id="riskDashboard">
+                  <!-- Risk Items Will Go Here -->
+              </div>
+              <form id="riskForm">
+                <label for="risk">Risk Name:</label>
+                <input type="text" id="risk" placeholder="Enter risk item" required>
+                <label for="riskLevel">Risk Level:</label>
+                <select id="riskLevel" name="riskLevel" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <label for="riskDepartment">Department:</label>
+                <input type="text" id="riskDepartment" name="riskDepartment" placeholder="Enter department" required>
+                <button type="submit">Add Risk</button>
+            </form>
+          </section>
+      </main>
+      <footer>
+          <p>ISM3232 Coding Challenge 15</p>
+      </footer>
+      <script src="cc_15.js"></script>
+  </body>
+  
+  </html>
