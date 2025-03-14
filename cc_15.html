@@ -21,6 +21,15 @@
     main {
         padding: 20px;
     }
+    #riskDashboard {
+        border: 2px dashed #a002f6; /* Purple */
+        padding: 20px;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px; 
+    }
 </style>
 
   <body>
@@ -38,9 +47,9 @@
                 <input type="text" id="risk" placeholder="Enter risk item" required>
                 <label for="riskLevel">Risk Level:</label>
                 <select id="riskLevel" name="riskLevel" required>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
                 </select>
                 <label for="riskDepartment">Department:</label>
                 <input type="text" id="riskDepartment" name="riskDepartment" placeholder="Enter department" required>
