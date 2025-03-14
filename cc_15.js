@@ -2,7 +2,7 @@
 const riskDashboard = document.getElementById("riskDashboard");
 console.log("Risk Dashboard Loaded");
 
-// Task 2: Adding Risk Items Dynamically
+// Task 2: Adding Risk Items Dynamically & Task 3: Removing Risk Items
 function addRiskItem(riskName, riskLevel, department) {
     const riskDashboard = document.getElementById("riskDashboard")
     const riskCard = document.createElement("div");
@@ -12,9 +12,14 @@ function addRiskItem(riskName, riskLevel, department) {
         <h3>${riskName}</h3>
         <p>Risk Level: ${riskLevel}<p>
         <p>Department: ${department}</p>
+        <button class="resolveButton">Resolve</button> 
     `;
-    
-    riskDashboard.appendChild(riskCard);
+
+    riskDashboard.appendChild(riskCard);  
+
+    riskCard.querySelector(".resolveButton").addEventListener("click", function() {
+        riskDashboard.removeChild(riskCard);
+    });
 }
 
 document.getElementById("riskForm").addEventListener("submit", function(event) {
@@ -30,10 +35,7 @@ document.getElementById("riskForm").addEventListener("submit", function(event) {
     document.getElementById("riskDepartment").value = "";
 });
 
-// Test Case For Task 2
+// Test Case For Tasks 2 & 3
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
-
-
-
-
+addRiskItem("Market Fluctuations", "High", "Finance");
