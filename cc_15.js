@@ -86,6 +86,11 @@ function increaseRiskLevels() {
 
 increaseRiskButton.addEventListener("click", increaseRiskLevels);
 
+// Task 6: Handling Event Propagation
+riskDashboard.addEventListener("click", function(event) {
+    console.log("Dashboard clicked!"); 
+});
+
 // Test Case For Tasks 2, 3, 4, & 5
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
