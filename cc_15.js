@@ -24,7 +24,7 @@ function addRiskItem(riskName, riskLevel, department) {
 
     riskCard.innerHTML = `
         <h3>${riskName}</h3>
-        <p>Risk Level: ${riskLevel}<p>
+        <p class="riskLevel">Risk Level: <span class="levelText">${riskLevel}</span></p>
         <p>Department: ${department}</p>
         <button class="resolveButton">Resolve</button> 
     `;
@@ -49,9 +49,47 @@ document.getElementById("riskForm").addEventListener("submit", function(event) {
     document.getElementById("riskDepartment").value = "";
 });
 
-// Test Case For Tasks 2 & 3
+// Task 5: Implementing Bulk Updates 
+function increaseRiskLevels() {
+    const riskCards = document.querySelectorAll(".riskCard");
+
+    riskCards.forEach(card => {
+        const riskLevelElement = card.querySelector(".levelText");
+
+    if (riskLevelElement) {
+        let currentLevel = riskLevelElement.textContent.trim();
+
+    let newLevel;
+        switch (currentLevel) {
+        case "Low":
+            newLevel = "Medium";
+            break;
+        case "Medium":
+            newLevel = "High";
+            break;
+        case "High":
+            newLevel = "High"; 
+            break;
+        default:
+            console.warn("Unexpected risk level:", currentLevel);
+            return; 
+            }
+
+            riskLevelElement.textContent = newLevel;
+            card.style.backgroundColor = newLevel === "Medium" ? "#FFD700" :
+                                         newLevel === "High" ? "#FF6347" : "#90EE90";
+        } else {
+            console.error("Risk level element not found in:", card.innerHTML);
+        }
+    });
+}
+
+increaseRiskButton.addEventListener("click", increaseRiskLevels);
+
+// Test Case For Tasks 2, 3, 4, & 5
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 addRiskItem("Market Fluctuations", "High", "Finance");
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+addRiskItem("Employee Retention", "Low", "HR");
